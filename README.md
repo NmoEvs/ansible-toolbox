@@ -19,6 +19,8 @@
   - [Yaml Syntax](#yaml-syntax)
     - [List](#list)
     - [Dictionnary](#dictionnary)
+  - [Sample Ansible Directory Structure](#sample-ansible-directory-structure)
+  - [Linter](#linter)
 
 ## [Prerequisites](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#prerequisites)
 
@@ -159,3 +161,47 @@ martin:
   job: Developer
   skill: Elite
 ```
+
+## [Sample Ansible Directory Structure](https://docs.ansible.com/ansible/latest/user_guide/sample_setup.html)
+
+```
+inventories/
+   production/
+      hosts               # inventory file for production servers
+      group_vars/
+         group1.yml       # here we assign variables to particular groups
+         group2.yml
+      host_vars/
+         hostname1.yml    # here we assign variables to particular systems
+         hostname2.yml
+
+   staging/
+      hosts               # inventory file for staging environment
+      group_vars/
+         group1.yml       # here we assign variables to particular groups
+         group2.yml
+      host_vars/
+         stagehost1.yml   # here we assign variables to particular systems
+         stagehost2.yml
+
+library/
+module_utils/
+filter_plugins/
+
+site.yml                  # main playbook
+webservers.yml
+dbservers.yml
+
+roles/
+    common/
+    webtier/
+    monitoring/
+    fooapp/
+
+```
+
+## [Linter](https://ansible-lint.readthedocs.io/en/latest/installing.html#using-pip-or-pipx)
+
+- [Installation](https://ansible-lint.readthedocs.io/en/latest/installing.html)
+- [Configuration](https://ansible-lint.readthedocs.io/en/latest/configuring.html)
+- [Usage]()
